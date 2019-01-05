@@ -94,4 +94,23 @@ class KeyTest < Minitest::Test
     assert_equal expected, key.key_hash
   end
 
+  def test_it_can_populate_key_hash
+    key = Key.new
+    key.test_random_number(12345)
+    key.convert_random_number_to_array
+    key.test_random_number_array_for_5_digits?
+    key.fill_in_zeroes
+    key.create_key_hash
+
+    key.populate_key_hash
+
+    expected = ({
+      a: 12,
+      b: 23,
+      c: 34,
+      d: 45
+      })
+    assert_equal expected, key.key_hash
+  end
+
 end

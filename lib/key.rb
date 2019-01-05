@@ -48,5 +48,11 @@ class Key
     @key_hash
   end
 
+  def populate_key_hash
+    counter = 0
+    @key_hash.each do |key, number|
+      value = @random_number_array[counter]
+  end
+
 
 end
