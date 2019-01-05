@@ -29,4 +29,14 @@ class Key
     end
   end
 
+  def fill_in_zeroes
+    if test_random_number_array_for_5_digits? == false
+      while @random_number_array.length < 5
+        @random_number_array << 0
+      end
+    end
+    @random_number_array
+  end
+
+
 end

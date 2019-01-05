@@ -1,6 +1,6 @@
 # require 'minitest/autorun'
 # require 'minitest/pride'
-require './lib/key'
+
 require './test/test_helper'
 
 class KeyTest < Minitest::Test
@@ -48,6 +48,26 @@ class KeyTest < Minitest::Test
     key.convert_random_number_to_array
 
     assert_equal false, key.test_random_number_array_for_5_digits?
+
+    key.test_random_number(54321)
+    key.convert_random_number_to_array
+
+    assert_equal true, key.test_random_number_array_for_5_digits?
+  end
+
+  def test_it_can_fill_in_zeroes
+    key = Key.new
+    key.test_random_number(123)
+    key.convert_random_number_to_array
+    key.test_random_number_array_for_5_digits?
+
+    assert_equal 5, key.fill_in_zeroes.length
+
+    key.test_random_number(12345)
+    key.convert_random_number_to_array
+    key.test_random_number_array_for_5_digits?
+
+    assert_equal 5, key.fill_in_zeroes.length
   end
 
 end
