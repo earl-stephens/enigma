@@ -1,6 +1,5 @@
 class Key
   attr_reader :random_number,
-              # :random_number_array,
               :key_hash
 
   def initialize
@@ -12,11 +11,6 @@ class Key
     @random_number = generator.rand(100000)
     @random_number.to_s
   end
-
-  # def convert_random_number_to_array
-  #   @random_number_array = @random_number.digits
-  #   @random_number_array
-  # end
 
   def test_random_number(number)
     @random_number = number
@@ -53,9 +47,11 @@ class Key
   def populate_key_hash
     counter = 0
     @key_hash.each do |key, number|
-      value = @random_number_array[counter]
+      number = @random_number[counter].concat(@random_number[counter + 1])
+      @key_hash[key] = number
+      counter += 1
     end
-
+    @key_hash
   end
 
 end
