@@ -13,17 +13,17 @@ class Key
     @random_number.to_s
   end
 
-  def convert_random_number_to_array
-    @random_number_array = @random_number.digits
-    @random_number_array
-  end
+  # def convert_random_number_to_array
+  #   @random_number_array = @random_number.digits
+  #   @random_number_array
+  # end
 
   def test_random_number(number)
     @random_number = number
   end
 
-  def test_random_number_array_for_5_digits?
-    if @random_number_array.length < 5
+  def test_random_number_for_5_digits?
+    if @random_number.length < 5
       false
     else
       true
