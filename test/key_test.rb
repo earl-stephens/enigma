@@ -31,25 +31,30 @@ class KeyTest < Minitest::Test
   def test_it_can_fill_in_zeroes
     # skip
     key = Key.new
-    key.test_random_number("123")
+    key.test_random_number("1")
+    key.fill_in_zeroes
 
+    assert_equal "00001", key.random_number
+
+    key.test_random_number("89")
+    key.fill_in_zeroes
+
+    assert_equal "00089", key.random_number
+
+    key.test_random_number("123")
     key.fill_in_zeroes
 
     assert_equal "00123", key.random_number
 
+    key.test_random_number("8765")
+    key.fill_in_zeroes
+
+    assert_equal "08765", key.random_number
+
     key.test_random_number("12345")
+    key.fill_in_zeroes
 
-    assert_equal 5, key.random_number.length
-  end
-
-  def test_it_can_create_A_key
-    skip
-    key = Key.new
-    key.test_random_number(12345)
-    key.convert_random_number_to_array
-    key.test_random_number_array_for_5_digits?
-
-    assert_equal 12, key.create_A_key
+    assert_equal "12345", key.random_number
   end
 
   def test_it_can_create_a_key_hash
@@ -81,6 +86,20 @@ class KeyTest < Minitest::Test
       b: "23",
       c: "34",
       d: "45"
+      })
+    assert_equal expected, key.key_hash
+
+    key.test_random_number("00189")
+    key.fill_in_zeroes
+    key.create_key_hash
+
+    key.populate_key_hash
+
+    expected = ({
+      a: "00",
+      b: "01",
+      c: "18",
+      d: "89"
       })
     assert_equal expected, key.key_hash
   end
