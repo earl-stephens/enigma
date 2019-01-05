@@ -14,13 +14,13 @@ class KeyTest < Minitest::Test
   def test_it_has_attributes
     key = Key.new
 
-    assert_equal 0, key.random_number
+    assert_equal "", key.random_number
   end
 
   def test_it_can_generate_a_random_number
     key = Key.new
 
-    assert_equal Integer, key.random_number.class
+    assert_equal String, key.random_number.class
   end
 
   def test_convert_random_number_to_array

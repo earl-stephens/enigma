@@ -4,13 +4,13 @@ class Key
               :key_hash
 
   def initialize
-    @random_number = 0
+    @random_number = ""
   end
 
   def random_number_generator
     generator = Random.new
     @random_number = generator.rand(100000)
-    @random_number.to_i
+    @random_number.to_s
   end
 
   def convert_random_number_to_array
@@ -53,6 +53,7 @@ class Key
     @key_hash.each do |key, number|
       value = @random_number_array[counter]
   end
+end
 
 
 end
