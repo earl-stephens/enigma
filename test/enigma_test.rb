@@ -1,7 +1,8 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+# require 'minitest/autorun'
+# require 'minitest/pride'
 require 'date'
 require './lib/enigma'
+require './test/test_helper'
 
 class EnigmaTest < Minitest::Test
 
