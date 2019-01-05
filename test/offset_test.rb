@@ -21,4 +21,12 @@ class OffsetTest < Minitest::Test
     assert_instance_of Time, offset.time
   end
 
+  def test_it_can_use_a_test_time_helper_method
+    offset = Offset.new
+
+    offset.test_time_helper_method("02032009")
+
+    assert_equal "02032009", offset.time
+  end
+
 end
