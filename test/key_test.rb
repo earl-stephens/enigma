@@ -42,33 +42,31 @@ class KeyTest < Minitest::Test
     # assert_equal [3, 2, 1], key.random_number_array
   end
 
-  def test_random_number_has_5_digits
-    key = Key.new
-    key.test_random_number("123")
-    # key.convert_random_number_to_array
-
-    assert_equal false, key.test_random_number_for_5_digits?
-
-    key.test_random_number("54321")
-    # key.convert_random_number_to_array
-
-    assert_equal true, key.test_random_number_for_5_digits?
-  end
+  # def test_random_number_has_5_digits
+  #   key = Key.new
+  #   key.test_random_number("123")
+  #   # key.convert_random_number_to_array
+  #
+  #   assert_equal false, key.test_random_number_for_5_digits
+  #
+  #   key.test_random_number("54321")
+  #   # key.convert_random_number_to_array
+  #
+  #   assert_equal true, key.test_random_number_for_5_digits
+  # end
 
   def test_it_can_fill_in_zeroes
-    skip
+    # skip
     key = Key.new
-    key.test_random_number(123)
-    key.convert_random_number_to_array
-    key.test_random_number_array_for_5_digits?
+    key.test_random_number("123")
 
-    assert_equal 5, key.fill_in_zeroes.length
+    key.fill_in_zeroes
 
-    key.test_random_number(12345)
-    key.convert_random_number_to_array
-    key.test_random_number_array_for_5_digits?
+    assert_equal "00123", key.random_number
 
-    assert_equal 5, key.fill_in_zeroes.length
+    key.test_random_number("12345")
+
+    assert_equal 5, key.random_number.length
   end
 
   def test_it_can_create_A_key

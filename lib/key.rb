@@ -1,6 +1,6 @@
 class Key
   attr_reader :random_number,
-              :random_number_array,
+              # :random_number_array,
               :key_hash
 
   def initialize
@@ -22,21 +22,23 @@ class Key
     @random_number = number
   end
 
-  def test_random_number_for_5_digits?
-    if @random_number.length < 5
-      false
-    else
-      true
-    end
-  end
-
   def fill_in_zeroes
-    if test_random_number_array_for_5_digits? == false
-      while @random_number_array.length < 5
-        @random_number_array << 0
-      end
+    case @random_number.length
+    when 1
+      zero = "0000"
+      @random_number = zero.concat(@random_number)
+    when 2
+      zero = "000"
+      @random_number = zero.concat(@random_number)
+    when 3
+      zero = "00"
+      @random_number = zero.concat(@random_number)
+    when 4
+      zero = "0"
+      @random_number = zero.concat(@random_number)
+    else
     end
-    @random_number_array
+    @random_number
   end
 
   def create_key_hash
@@ -52,8 +54,8 @@ class Key
     counter = 0
     @key_hash.each do |key, number|
       value = @random_number_array[counter]
-  end
-end
+    end
 
+  end
 
 end
