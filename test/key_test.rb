@@ -70,4 +70,28 @@ class KeyTest < Minitest::Test
     assert_equal 5, key.fill_in_zeroes.length
   end
 
+  def test_it_can_create_A_key
+    skip
+    key = Key.new
+    key.test_random_number(12345)
+    key.convert_random_number_to_array
+    key.test_random_number_array_for_5_digits?
+
+    assert_equal 12, key.create_A_key
+  end
+
+  def test_it_can_create_a_key_hash
+    key = Key.new
+
+    key.create_key_hash
+
+    expected = {
+      a: 0,
+      b: 0,
+      c: 0,
+      d: 0
+    }
+    assert_equal expected, key.key_hash
+  end
+
 end

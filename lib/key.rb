@@ -1,6 +1,7 @@
 class Key
   attr_reader :random_number,
-              :random_number_array
+              :random_number_array,
+              :key_hash
 
   def initialize
     @random_number = 0
@@ -36,6 +37,15 @@ class Key
       end
     end
     @random_number_array
+  end
+
+  def create_key_hash
+    @key_hash = Hash.new
+    letter_array = ("a".."d").to_a
+    letter_array.each do |letter|
+      key_hash[letter.to_sym] = 0
+    end
+    @key_hash
   end
 
 
