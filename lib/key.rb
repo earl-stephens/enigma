@@ -21,4 +21,12 @@ class Key
     @random_number = number
   end
 
+  def test_random_number_array_for_5_digits?
+    if @random_number_array.length < 5
+      false
+    else
+      true
+    end
+  end
+
 end

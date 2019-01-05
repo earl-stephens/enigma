@@ -44,10 +44,10 @@ class KeyTest < Minitest::Test
 
   def test_random_number_has_5_digits
     key = Key.new
+    key.test_random_number(123)
+    key.convert_random_number_to_array
 
-    key.convert_random_number_to_array = ["1", "2", "3"]
-
-    assert_equal false, key.test_random_number_array_for_5_digits
+    assert_equal false, key.test_random_number_array_for_5_digits?
   end
 
 end
