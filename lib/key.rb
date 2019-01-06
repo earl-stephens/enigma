@@ -46,7 +46,7 @@ class Key
     @key_hash = Hash.new
     letter_array = ("a".."d").to_a
     letter_array.each do |letter|
-      key_hash[letter.to_sym] = 0
+      @key_hash[letter.to_sym] = 0
     end
     @key_hash
   end
