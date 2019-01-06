@@ -19,8 +19,10 @@ class Key
 
   def main_method
     random_number_generator
+
     fill_in_zeroes
     populate_key_array
+        # binding.pry
     convert_key_array
   end
 
@@ -53,6 +55,7 @@ class Key
       @random_number = zero.concat(@random_number)
     else
     end
+    # binding.pry
     @random_number
   end
 
