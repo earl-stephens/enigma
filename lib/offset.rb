@@ -1,3 +1,4 @@
+require 'pry'
 class Offset
   attr_reader :time
 
@@ -7,6 +8,12 @@ class Offset
 
   def test_time_helper_method(time)
     @time = time
+  end
+
+  def format_time
+    @time = @time.strftime("%d%m%Y")
+    @time = @time[0..3] + @time[6..7]
+    @time
   end
 
 end
