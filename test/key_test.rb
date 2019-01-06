@@ -58,41 +58,25 @@ class KeyTest < Minitest::Test
     assert_equal "12345", key.random_number
   end
 
-  # def test_it_can_create_a_key_hash
-  #   skip
-  #   key = Key.new
-  #
-  #   key.create_key_hash
-  #
-  #   expected = {
-  #     a: 0,
-  #     b: 0,
-  #     c: 0,
-  #     d: 0
-  #   }
-  #   assert_equal expected, key.key_hash
-  # end
-
   def test_it_can_populate_key_array
-    # skip
     key = Key.new
-    # key.test_random_number("12345")
-    # key.fill_in_zeroes
-    # # key.create_key_hash
-    #
-    # key.populate_key_array
-    #
-    # expected = ["12", "23", "34", "45"]
-    # assert_equal expected, key.key_array
 
     key.test_random_number("00189")
     key.fill_in_zeroes
-    # key.create_key_hash
 
     key.populate_key_array
 
     expected = ["00", "01", "18", "89"]
     assert_equal expected, key.key_array
+  end
+
+  def test_it_can_convert_strings_to_integers
+    key = Key.new
+    key.test_random_number("67843")
+    key.fill_in_zeroes
+    key.populate_key_array
+
+    assert_equal [67, 78, 84, 43], key.convert_key_array
   end
 
   def test_CEO_tester_method
