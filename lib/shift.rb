@@ -21,21 +21,46 @@ class Shift
     @alphabet = ("a".."z").to_a << " "
   end
 
-  def shift_letters(message)
-      counter = 0
-    message.each_char do |character|
-          # binding.pry
+  def letter_in_alphabet?(letter)
+    @alphabet.include?(letter)
+  end
 
-      placeholder = @alphabet.index(character)
-      rotated_alphabet = @alphabet.rotate(@shift_pattern[counter])
-      @shifted_message.concat(rotated_alphabet[placeholder])
-      if counter == 3
-        counter = 0
-      else counter += 1
+  def shift_letters(message)
+    counter = 0
+    message.each_char do |character|
+      if letter_in_alphabet?(character) == true
+        placeholder = @alphabet.index(character)
+        rotated_alphabet = @alphabet.rotate(@shift_pattern[counter])
+        @shifted_message.concat(rotated_alphabet[placeholder])
+          if counter == 3
+            counter = 0
+          else counter += 1
+          end
+      else
+        @shifted_message.concat(character)
       end
-      # binding.pry
+      @shifted_message
     end
+  end
+
+  def shift_letters_backwards(message)
+    counter = 0
+    message.each_char do |character|
+      if letter_in_alphabet?(character) == true
+        placeholder = @alphabet.index(character)
+        backwards_shift = @shift_pattern[counter] * -1
+        rotated_alphabet = @alphabet.rotate(backwards_shift)
+        @shifted_message.concat(rotated_alphabet[placeholder])
+        if counter == 3
+          counter = 0
+        else counter += 1
+        end
+      else
+        @shifted_message.concat(character)
+      end
     @shifted_message
   end
+  end
+
 
 end
