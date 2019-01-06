@@ -1,6 +1,7 @@
 require 'pry'
 class Offset
-  attr_reader :time
+  attr_reader :time,
+              :last_four
 
   def get_time
     @time = Time.new
@@ -23,6 +24,12 @@ class Offset
   def square_the_numeric_time
     numeric_time = convert_time_to_integer
     time_squared = numeric_time ** 2
+  end
+
+  def get_the_last_four
+    time_squared = square_the_numeric_time
+    intermediate_array = time_squared.digits.reverse
+    @last_four = intermediate_array[-4..-1]
   end
 
 end

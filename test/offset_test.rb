@@ -61,4 +61,15 @@ class OffsetTest < Minitest::Test
     assert_equal 412455481, offset.square_the_numeric_time
   end
 
+  def test_it_can_get_the_last_four_of_numeric_time
+    offset = Offset.new
+    offset.test_time_helper_method("020309")
+    offset.convert_time_to_integer
+    offset.square_the_numeric_time
+
+    offset.get_the_last_four
+
+    assert_equal [5, 4, 8, 1], offset.last_four
+  end
+
 end
