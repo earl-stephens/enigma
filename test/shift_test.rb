@@ -17,6 +17,7 @@ class ShiftTest < Minitest::Test
   def test_it_can_create_a_shift_pattern
     shift = Shift.new
     key = Key.new
+    key.main_test_method("02468")
     offset = Offset.new
 
 

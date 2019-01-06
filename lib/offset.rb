@@ -3,6 +3,13 @@ class Offset
   attr_reader :time,
               :last_four
 
+  def main_test_method(date)
+    test_time_helper_method(date)
+    convert_time_to_integer
+    square_the_numeric_time
+    get_the_last_four
+  end
+
   def get_time
     @time = Time.new
   end
