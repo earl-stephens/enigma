@@ -24,9 +24,9 @@ class OffsetTest < Minitest::Test
   def test_it_can_use_a_test_time_helper_method
     offset = Offset.new
 
-    offset.test_time_helper_method("02032009")
+    offset.test_time_helper_method("020309")
 
-    assert_equal "02032009", offset.time
+    assert_equal "020309", offset.time
   end
 
   def test_it_can_format_time_input
@@ -41,6 +41,15 @@ class OffsetTest < Minitest::Test
     offset.format_time
     assert_equal String, offset.time.class
     assert_equal 6, offset.time.length
+  end
+
+  def test_it_can_convert_the_time_to_an_integer
+    offset = Offset.new
+    offset.get_time
+    offset.format_time
+
+    offset.convert_time_to_integer
+    assert_equal Integer, offset.convert_time_to_integer.class
   end
 
 end

@@ -16,4 +16,8 @@ class Offset
     @time
   end
 
+  def convert_time_to_integer
+    numeric_time = @time.to_i
+  end
+
 end
