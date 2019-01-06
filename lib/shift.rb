@@ -46,16 +46,20 @@ class Shift
   def shift_letters_backwards(message)
     counter = 0
     message.each_char do |character|
-      placeholder = @alphabet.index(character)
-      backwards_shift = @shift_pattern[counter] * -1
-      rotated_alphabet = @alphabet.rotate(backwards_shift)
-      @shifted_message.concat(rotated_alphabet[placeholder])
-      if counter == 3
-        counter = 0
-      else counter += 1
+      if letter_in_alphabet?(character) == true
+        placeholder = @alphabet.index(character)
+        backwards_shift = @shift_pattern[counter] * -1
+        rotated_alphabet = @alphabet.rotate(backwards_shift)
+        @shifted_message.concat(rotated_alphabet[placeholder])
+        if counter == 3
+          counter = 0
+        else counter += 1
+        end
+      else
+        @shifted_message.concat(character)
       end
-    end
     @shifted_message
+  end
   end
 
 
