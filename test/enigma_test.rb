@@ -22,6 +22,12 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Hash, enigma.hash
   end
 
+  def test_it_can_choose_a_key
+    enigma = Enigma.new
+
+    assert_equal [2, 27,71, 15], enigma.key.main_test_method("02715")
+  end
+
   def test_it_can_encrypt_a_message
     skip
     enigma = Enigma.new

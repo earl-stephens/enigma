@@ -1,10 +1,12 @@
 class Key
   attr_reader :random_number,
-              :key_array
+              :key_array,
+              :converted_key_array
 
   def initialize
     @random_number = ""
     @key_array =[]
+    @converted_key_array = []
   end
 
   def main_test_method(number)
@@ -65,12 +67,11 @@ class Key
   end
 
   def convert_key_array
-    converted_key_array = []
     @key_array.map do |element|
-      converted_key_array << element.to_i
+      @converted_key_array << element.to_i
     end
     # binding.pry
-    converted_key_array
+    @converted_key_array
   end
 
 end

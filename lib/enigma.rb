@@ -11,8 +11,9 @@ class Enigma
     @hash = Hash.new
   end
 
-  def encrypt(message, user_key, user_date)
+  def encrypt(message, user_key = nil, user_date = nil)
     setup
+
 
   end
 

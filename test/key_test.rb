@@ -12,7 +12,8 @@ class KeyTest < Minitest::Test
     key = Key.new
 
     assert_equal "", key.random_number
-    assert_equal = [], key.key_array
+    assert_equal [], key.key_array
+    assert_equal [], key.converted_key_array
   end
 
   def test_it_can_generate_a_random_number
@@ -92,7 +93,7 @@ class KeyTest < Minitest::Test
     key = Key.new
     key.main_method
 
-    assert_equal 4, key.convert_key_array.length
+    assert_equal 4, key.converted_key_array.length
     assert_instance_of Integer, key.convert_key_array[2]
   end
 
