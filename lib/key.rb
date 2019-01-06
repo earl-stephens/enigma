@@ -1,10 +1,12 @@
 class Key
   attr_reader :random_number,
-              :key_array
+              :key_array,
+              :converted_key_array
 
   def initialize
     @random_number = ""
     @key_array =[]
+    @converted_key_array = []
   end
 
   def main_test_method(number)
@@ -15,10 +17,20 @@ class Key
     convert_key_array
   end
 
+  def main_method
+    random_number_generator
+
+    fill_in_zeroes
+    populate_key_array
+        # binding.pry
+    convert_key_array
+  end
+
+
   def random_number_generator
     generator = Random.new
     @random_number = generator.rand(100000)
-    @random_number.to_s
+    @random_number = @random_number.to_s
     return generator
   end
 
@@ -27,6 +39,7 @@ class Key
   end
 
   def fill_in_zeroes
+    # binding.pry
     case @random_number.length
     when 1
       zero = "0000"
@@ -42,6 +55,7 @@ class Key
       @random_number = zero.concat(@random_number)
     else
     end
+    # binding.pry
     @random_number
   end
 
@@ -56,11 +70,11 @@ class Key
   end
 
   def convert_key_array
-    converted_key_array = []
     @key_array.map do |element|
-      converted_key_array << element.to_i
+      @converted_key_array << element.to_i
     end
-    converted_key_array
+    # binding.pry
+    @converted_key_array
   end
 
 end
