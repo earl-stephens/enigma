@@ -21,9 +21,18 @@ class Enigma
     end
   end
 
+  def select_offset(user_date)
+    if user_date == nil
+      @offset.main_method
+    else
+      @offset.main_test_method(user_date)
+    end
+  end
+
   def encrypt(message, user_key = nil, user_date = nil)
     setup
     select_key(user_key)
+    select_offset(user_date)
 
 
 

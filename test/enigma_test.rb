@@ -27,6 +27,7 @@ class EnigmaTest < Minitest::Test
     enigma.setup
 
     enigma.select_key("02715")
+
     assert_equal [2, 27,71, 15], enigma.key.converted_key_array
   end
 
@@ -35,10 +36,33 @@ class EnigmaTest < Minitest::Test
     enigma.setup
 
     enigma.select_key(nil)
+
     assert_equal Array, enigma.key.converted_key_array.class
     assert_equal 4, enigma.key.converted_key_array.length
   end
 
+  def test_it_can_select_an_offset_method_when_not_given_a_date
+    enigma = Enigma.new
+    enigma.setup
+
+    enigma.select_offset(nil)
+
+    assert_equal Array, enigma.offset.last_four.class
+    assert_equal Integer, enigma.offset.last_four[2].class
+    assert_equal 4, enigma.offset.last_four.length
+  end
+
+  def test_it_can_select_an_offset_method_when_given_a_date
+    skip
+    enigma = Enigma.new
+    enigma.setup
+
+    enigma.select_offset(nil)
+
+    assert_equal Array, enigma.offset.last_four.class
+    assert_equal Integer, enigma.offset.last_four[2].class
+    assert_equal 4, enigma.offset.last_four.length
+  end
   def test_it_can_encrypt_a_message
     skip
     enigma = Enigma.new
