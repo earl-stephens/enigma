@@ -53,15 +53,15 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_select_an_offset_method_when_given_a_date
-    skip
+    # skip
     enigma = Enigma.new
     enigma.setup
 
-    enigma.select_offset(nil)
+    enigma.select_offset("050598")
 
-    assert_equal Array, enigma.offset.last_four.class
-    assert_equal Integer, enigma.offset.last_four[2].class
-    assert_equal 4, enigma.offset.last_four.length
+    assert_equal [7, 6, 0, 4], enigma.offset.last_four
+    # assert_equal Integer, enigma.offset.last_four[2].class
+    # assert_equal 4, enigma.offset.last_four.length
   end
   def test_it_can_encrypt_a_message
     skip
