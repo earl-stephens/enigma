@@ -14,24 +14,30 @@ class ShiftTest < Minitest::Test
     assert_instance_of Shift, shift
   end
 
-  def test_it_creates_a_shift_pattern_hash
+  def test_it_has_attributes
     shift = Shift.new
 
-    shift.create_shift_pattern_hash
-
-    expected = ({
-      a: 0,
-      b: 0,
-      c: 0,
-      d: 0
-      })
-    assert_equal expected, shift.create_shift_pattern_hash
+    assert_equal [], shift.shift_pattern
   end
+
+  # def test_it_creates_a_shift_pattern_hash
+  #   shift = Shift.new
+  #
+  #   shift.create_shift_pattern_hash
+  #
+  #   expected = ({
+  #     a: 0,
+  #     b: 0,
+  #     c: 0,
+  #     d: 0
+  #     })
+  #   assert_equal expected, shift.create_shift_pattern_hash
+  # end
 
   def test_it_can_create_a_shift_pattern
     # skip
     shift = Shift.new
-    shift.create_shift_pattern_hash
+    # shift.create_shift_pattern_hash
     key = Key.new
     offset = Offset.new
     keys = key.main_test_method("02468")
@@ -39,12 +45,13 @@ class ShiftTest < Minitest::Test
 
     shift.create_shift_pattern(keys, offsets)
 
-    expected = ({
-      a: 4,
-      b: 33,
-      c: 50,
-      d: 72
-      })
+    expected ["4", "33", "50", "72"]
+    # expected = ({
+    #   a: 4,
+    #   b: 33,
+    #   c: 50,
+    #   d: 72
+    #   })
     assert_equal expected, shift.shift_pattern
   end
 
@@ -58,6 +65,6 @@ class ShiftTest < Minitest::Test
     assert_equal expected, shift.alphabet
   end
 
-  
+
 
 end

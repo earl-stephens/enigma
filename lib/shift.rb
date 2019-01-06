@@ -3,14 +3,18 @@ class Shift
   attr_reader :shift_pattern,
               :alphabet
 
-  def create_shift_pattern_hash
-    @shift_pattern = Hash.new
-    letter_array = ("a".."d").to_a
-    letter_array.each do |letter|
-      @shift_pattern[letter.to_sym] = 0
-    end
-    @shift_pattern
+  def initialize
+    @shift_pattern = []
   end
+
+  # def create_shift_pattern_hash
+  #   @shift_pattern = Hash.new
+  #   letter_array = ("a".."d").to_a
+  #   letter_array.each do |letter|
+  #     @shift_pattern[letter.to_sym] = 0
+  #   end
+  #   @shift_pattern
+  # end
 
   def create_shift_pattern(keys, offsets)
     counter = 0
