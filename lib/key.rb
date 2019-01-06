@@ -1,16 +1,17 @@
 class Key
   attr_reader :random_number,
-              :key_hash
+              :key_array
 
   def initialize
     @random_number = ""
+    @key_array =[]
   end
 
   def main_test_method(number)
     test_random_number(number)
     fill_in_zeroes
-    create_key_hash
-    populate_key_hash
+    # create_key_hash
+    populate_key_array
   end
 
   def random_number_generator
@@ -43,23 +44,23 @@ class Key
     @random_number
   end
 
-  def create_key_hash
-    @key_hash = Hash.new
-    letter_array = ("a".."d").to_a
-    letter_array.each do |letter|
-      @key_hash[letter.to_sym] = 0
-    end
-    @key_hash
-  end
+  # def create_key_hash
+  #   @key_hash = Hash.new
+  #   letter_array = ("a".."d").to_a
+  #   letter_array.each do |letter|
+  #     @key_hash[letter.to_sym] = 0
+  #   end
+  #   @key_hash
+  # end
 
-  def populate_key_hash
+  def populate_key_array
     counter = 0
-    @key_hash.each do |key, number|
+    4.times do
       number = @random_number[counter].concat(@random_number[counter + 1])
-      @key_hash[key] = number
+      @key_array << number
       counter += 1
     end
-    @key_hash
+    @key_array
   end
 
 end

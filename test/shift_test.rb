@@ -58,4 +58,6 @@ class ShiftTest < Minitest::Test
     assert_equal expected, shift.alphabet
   end
 
+  
+
 end

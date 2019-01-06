@@ -12,6 +12,7 @@ class KeyTest < Minitest::Test
     key = Key.new
 
     assert_equal "", key.random_number
+    assert_equal = [], key.key_array
   end
 
   def test_it_can_generate_a_random_number
@@ -57,64 +58,50 @@ class KeyTest < Minitest::Test
     assert_equal "12345", key.random_number
   end
 
-  def test_it_can_create_a_key_hash
+  # def test_it_can_create_a_key_hash
+  #   skip
+  #   key = Key.new
+  #
+  #   key.create_key_hash
+  #
+  #   expected = {
+  #     a: 0,
+  #     b: 0,
+  #     c: 0,
+  #     d: 0
+  #   }
+  #   assert_equal expected, key.key_hash
+  # end
+
+  def test_it_can_populate_key_array
     # skip
     key = Key.new
-
-    key.create_key_hash
-
-    expected = {
-      a: 0,
-      b: 0,
-      c: 0,
-      d: 0
-    }
-    assert_equal expected, key.key_hash
-  end
-
-  def test_it_can_populate_key_hash
-    # skip
-    key = Key.new
-    key.test_random_number("12345")
-    key.fill_in_zeroes
-    key.create_key_hash
-
-    key.populate_key_hash
-
-    expected = ({
-      a: "12",
-      b: "23",
-      c: "34",
-      d: "45"
-      })
-    assert_equal expected, key.key_hash
+    # key.test_random_number("12345")
+    # key.fill_in_zeroes
+    # # key.create_key_hash
+    #
+    # key.populate_key_array
+    #
+    # expected = ["12", "23", "34", "45"]
+    # assert_equal expected, key.key_array
 
     key.test_random_number("00189")
     key.fill_in_zeroes
-    key.create_key_hash
+    # key.create_key_hash
 
-    key.populate_key_hash
+    key.populate_key_array
 
-    expected = ({
-      a: "00",
-      b: "01",
-      c: "18",
-      d: "89"
-      })
-    assert_equal expected, key.key_hash
+    expected = ["00", "01", "18", "89"]
+    assert_equal expected, key.key_array
   end
 
   def test_CEO_tester_method
+    # skip
     key = Key.new
     key.main_test_method("45678")
 
-    expected = ({
-      a: "45",
-      b: "56",
-      c: "67",
-      d: "78"
-      })
-  assert_equal expected, key.key_hash
+    expected = ["45", "56", "67", "78"]
+  assert_equal expected, key.key_array
   end
 
 
