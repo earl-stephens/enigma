@@ -21,6 +21,10 @@ class Shift
     @alphabet = ("a".."z").to_a << " "
   end
 
+  def letter_in_alphabet?(letter)
+    @alphabet.include?(letter)
+  end
+
   def shift_letters(message)
     counter = 0
     message.each_char do |character|

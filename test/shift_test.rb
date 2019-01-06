@@ -65,6 +65,12 @@ class ShiftTest < Minitest::Test
     assert_equal "hello world", shift.shifted_message
   end
 
+  def test_if_character_is_in_the_alphabet
+    shift = Shift.new
+    shift.create_alphabet
 
+    assert_equal true, shift.letter_in_alphabet?("d")
+    assert_equal false, shift.letter_in_alphabet?("!")
+  end
 
 end
