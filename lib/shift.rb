@@ -1,6 +1,7 @@
 require 'pry'
 class Shift
-  attr_reader :shift_pattern
+  attr_reader :shift_pattern,
+              :alphabet
 
   def create_shift_pattern_hash
     @shift_pattern = Hash.new
@@ -19,6 +20,10 @@ class Shift
       counter += 1
     end
     @shift_pattern
+  end
+
+  def create_alphabet
+    @alphabet = ("a".."z").to_a << " "
   end
 
 end

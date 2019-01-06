@@ -48,4 +48,14 @@ class ShiftTest < Minitest::Test
     assert_equal expected, shift.shift_pattern
   end
 
+  def test_it_has_an_alphabet
+    shift = Shift.new
+
+    shift.create_alphabet
+
+    expected = ["a","b","c","d","e","f","g","h","i","j","k","l",
+      "m","n","o","p","q","r","s","t","u","v","w","x","y","z"," "]
+    assert_equal expected, shift.alphabet
+  end
+
 end

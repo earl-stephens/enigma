@@ -17,6 +17,7 @@ class Key
     generator = Random.new
     @random_number = generator.rand(100000)
     @random_number.to_s
+    return generator
   end
 
   def test_random_number(number)
