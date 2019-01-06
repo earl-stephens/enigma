@@ -80,4 +80,14 @@ class OffsetTest < Minitest::Test
     assert_equal [7, 6, 0, 4], offset.last_four
   end
 
+  def test_CEO_main_method
+    offset = Offset.new
+
+    offset.main_method
+
+    assert_equal 4, offset.last_four.length
+    assert_equal Array, offset.last_four.class
+    assert_equal Integer, offset.last_four[2].class
+  end
+
 end

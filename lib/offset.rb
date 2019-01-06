@@ -10,6 +10,14 @@ class Offset
     get_the_last_four
   end
 
+  def main_method
+    get_time
+    format_time
+    convert_time_to_integer
+    square_the_numeric_time
+    get_the_last_four
+  end
+
   def get_time
     @time = Time.new
   end
@@ -37,6 +45,7 @@ class Offset
     time_squared = square_the_numeric_time
     intermediate_array = time_squared.digits.reverse
     @last_four = intermediate_array[-4..-1]
+    # binding.pry
   end
 
 end
