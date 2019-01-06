@@ -82,9 +82,9 @@ class ShiftTest < Minitest::Test
     offsets = offset.main_test_method("040895")
     shift.create_shift_pattern(keys, offsets)
 
-    shift.shift_letters("hello world!")
+    shift.shift_letters("hello! world!")
 
-    assert_equal "keder ohulw!", shift.shifted_message
+    assert_equal "keder! ohulw!", shift.shifted_message
   end
 
   def test_it_can_shift_letters_backwards_with_special_characters
@@ -96,9 +96,9 @@ class ShiftTest < Minitest::Test
     offsets = offset.main_test_method("040895")
     shift.create_shift_pattern(keys, offsets)
 
-    shift.shift_letters_backwards("keder ohulw!")
+    shift.shift_letters_backwards("keder! ohulw!")
 
-    assert_equal "hello world!", shift.shifted_message
+    assert_equal "hello! world!", shift.shifted_message
   end
 
 
