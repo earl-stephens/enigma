@@ -88,5 +88,13 @@ class KeyTest < Minitest::Test
   assert_equal expected, key.key_array
   end
 
+  def test_CEO_main_method
+    key = Key.new
+    key.main_method
+
+    assert_equal 4, key.convert_key_array.length
+    assert_instance_of Integer, key.convert_key_array[2]
+  end
+
 
 end

@@ -15,10 +15,18 @@ class Key
     convert_key_array
   end
 
+  def main_method
+    random_number_generator
+    fill_in_zeroes
+    populate_key_array
+    convert_key_array
+  end
+
+
   def random_number_generator
     generator = Random.new
     @random_number = generator.rand(100000)
-    @random_number.to_s
+    @random_number = @random_number.to_s
     return generator
   end
 
@@ -27,6 +35,7 @@ class Key
   end
 
   def fill_in_zeroes
+    # binding.pry
     case @random_number.length
     when 1
       zero = "0000"
@@ -60,6 +69,7 @@ class Key
     @key_array.map do |element|
       converted_key_array << element.to_i
     end
+    # binding.pry
     converted_key_array
   end
 
