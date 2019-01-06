@@ -28,10 +28,15 @@ class EnigmaTest < Minitest::Test
 
     enigma.select_key("02715")
     assert_equal [2, 27,71, 15], enigma.key.converted_key_array
-    #
-    # enigma.select_key(nil)
-    # assert_equal Array, enigma.key.converted_key_array.class
-    # assert_equal 4, enigma.key.converted_key_array.length
+  end
+
+  def test_it_can_choose_a_key_method_without_a_given_key
+    enigma = Enigma.new
+    enigma.setup
+
+    enigma.select_key(nil)
+    assert_equal Array, enigma.key.converted_key_array.class
+    assert_equal 4, enigma.key.converted_key_array.length
   end
 
   def test_it_can_encrypt_a_message
