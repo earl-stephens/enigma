@@ -104,4 +104,18 @@ class KeyTest < Minitest::Test
     assert_equal expected, key.key_hash
   end
 
+  def test_CEO_tester_method
+    key = Key.new
+    key.main_test_method("45678")
+
+    expected = ({
+      a: "45",
+      b: "56",
+      c: "67",
+      d: "78"
+      })
+  assert_equal expected, key.key_hash
+  end
+
+  
 end

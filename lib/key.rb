@@ -6,6 +6,13 @@ class Key
     @random_number = ""
   end
 
+  def main_test_method(number)
+    test_random_number(number)
+    fill_in_zeroes
+    create_key_hash
+    populate_key_hash
+  end
+
   def random_number_generator
     generator = Random.new
     @random_number = generator.rand(100000)
