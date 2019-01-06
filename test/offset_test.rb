@@ -52,4 +52,13 @@ class OffsetTest < Minitest::Test
     assert_equal Integer, offset.convert_time_to_integer.class
   end
 
+  def test_it_can_square_the_numeric_time
+    offset = Offset.new
+
+    offset.test_time_helper_method("020309")
+    offset.convert_time_to_integer
+
+    assert_equal 412455481, offset.square_the_numeric_time
+  end
+
 end

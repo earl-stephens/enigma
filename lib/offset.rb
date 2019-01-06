@@ -20,4 +20,9 @@ class Offset
     numeric_time = @time.to_i
   end
 
+  def square_the_numeric_time
+    numeric_time = convert_time_to_integer
+    time_squared = numeric_time ** 2
+  end
+
 end
