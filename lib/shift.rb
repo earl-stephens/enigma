@@ -15,6 +15,12 @@ class Shift
     shift_letters(message)
   end
 
+  def main_decrypt_method(message, keys, offsets)
+    create_shift_pattern(keys, offsets)
+    create_alphabet
+    shift_letters_backwards(message)
+  end
+
   def create_shift_pattern(keys, offsets)
     temp_array = keys.zip(offsets)
     temp_array.each do |element|
