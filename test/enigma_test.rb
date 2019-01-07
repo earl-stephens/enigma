@@ -64,7 +64,7 @@ class EnigmaTest < Minitest::Test
     # assert_equal 4, enigma.offset.last_four.length
   end
   def test_it_can_encrypt_a_message
-    skip
+    # skip
     enigma = Enigma.new
 
     expected =({
@@ -74,5 +74,58 @@ class EnigmaTest < Minitest::Test
       })
     assert_equal expected, enigma.encrypt("hello world", "02715", "040895")
   end
+
+  def test_it_can_encrypt_a_message_without_a_date
+    enigma = Enigma.new
+
+    expected =({
+      encryption: "nfhauasdxm ",
+      key: "02715",
+      date: "070119"
+      })
+    assert_equal expected, enigma.encrypt("hello world", "02715")
+  end
+
+  def test_it_can_encrypt_a_message_without_a_key_or_a_date
+    enigma = Enigma.new
+
+    enigma.encrypt("hello world")
+
+    assert_equal 11, enigma.hash[:encryption].length
+
+  end
+
+  # def test_it_can_encrypt_a_message_without_a_key
+  #   enigma = Enigma.new
+  #
+  #   enigma.encrypt("hello world", nil ,"040895")
+  #
+  #   assert_equal 11, enigma.hash[:message].length
+  # end
+
+  def test_it_can_decrypt_a_message
+    enigma = Enigma.new
+
+    expected =({
+      decryption: "hello world",
+      key: "02715",
+      date: "040895"
+      })
+    assert_equal expected, enigma.decrypt("keder ohulw", "02715", "040895")
+  end
+
+  def test_it_can_decrypt_a_message_without_a_date
+    enigma = Enigma.new
+
+    encrypted = enigma.encrypt("hello world", "02715")
+
+    expected =({
+      decryption: "hello world",
+      key: "02715",
+      date: "070119"
+      })
+    assert_equal expected, enigma.decrypt(encrypted[:encryption], "02715")
+  end
+
 
 end

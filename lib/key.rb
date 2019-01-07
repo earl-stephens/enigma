@@ -1,7 +1,9 @@
+require 'pry'
 class Key
   attr_reader :random_number,
               :key_array,
-              :converted_key_array
+              :converted_key_array,
+              :number_as_string
 
   def initialize
     @random_number = ""
@@ -56,10 +58,12 @@ class Key
     else
     end
     # binding.pry
+    @number_as_string = @random_number
     @random_number
   end
 
   def populate_key_array
+    # binding.pry
     counter = 0
     4.times do
       number = @random_number[counter].concat(@random_number[counter + 1])

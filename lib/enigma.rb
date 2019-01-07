@@ -15,7 +15,6 @@ class Enigma
   def select_key(user_key)
     if user_key == nil
       @key.main_method
-      # binding.pry
     else
       @key.main_test_method(user_key)
     end
@@ -31,11 +30,22 @@ class Enigma
 
   def encrypt(message, user_key = nil, user_date = nil)
     setup
-    select_key(user_key)
-    select_offset(user_date)
+    encrypt_key = select_key(user_key)
+    encrypt_offset = select_offset(user_date)
+    @hash[:encryption] = @shift.main_encrypt_method(message, encrypt_key, encrypt_offset)
+    @hash[:key] = @key.number_as_string
+    @hash[:date] = @offset.time
+    @hash
+  end
 
-
-
+  def decrypt(message, user_key = nil, user_date = nil)
+    setup
+    encrypt_key = select_key(user_key)
+    encrypt_offset = select_offset(user_date)
+    @hash[:decryption] = @shift.main_decrypt_method(message, encrypt_key, encrypt_offset)
+    @hash[:key] = @key.number_as_string
+    @hash[:date] = @offset.time
+    @hash
   end
 
 end
