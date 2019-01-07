@@ -33,10 +33,11 @@ class Enigma
     key = select_key(user_key)
     # binding.pry
     offset = select_offset(user_date)
-    binding.pry
+    # binding.pry
+    @hash[:encryption] = shift.main_encrypt_method(message, key, offset)
+    @hash[:key] = select_key(user_key).random_number
 
-
-
+    @hash
   end
 
 end

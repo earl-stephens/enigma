@@ -57,6 +57,7 @@ class KeyTest < Minitest::Test
     key.fill_in_zeroes
 
     assert_equal "12345", key.random_number
+    assert_equal "12345", key.number_as_string
   end
 
   def test_it_can_populate_key_array
