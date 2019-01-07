@@ -20,6 +20,7 @@ class Shift
     create_shift_pattern(keys, offsets)
     create_alphabet
     shift_letters_backwards(message)
+    @shifted_message
   end
 
   def create_shift_pattern(keys, offsets)
