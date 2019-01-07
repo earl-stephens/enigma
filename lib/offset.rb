@@ -33,6 +33,7 @@ class Offset
   end
 
   def convert_time_to_integer
+    # binding.pry
     numeric_time = @time.to_i
   end
 

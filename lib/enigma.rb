@@ -30,13 +30,11 @@ class Enigma
 
   def encrypt(message, user_key = nil, user_date = nil)
     setup
-    key = select_key(user_key)
-    # binding.pry
-    offset = select_offset(user_date)
-    # binding.pry
-    @hash[:encryption] = shift.main_encrypt_method(message, key, offset)
-    @hash[:key] = select_key(user_key).random_number
-
+    encrypt_key = select_key(user_key)
+    encrypt_offset = select_offset(user_date)
+    @hash[:encryption] = @shift.main_encrypt_method(message, encrypt_key, encrypt_offset)
+    @hash[:key] = @key.number_as_string
+    @hash[:date] = @offset.time
     @hash
   end
 

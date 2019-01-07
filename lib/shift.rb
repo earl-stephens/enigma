@@ -13,6 +13,7 @@ class Shift
     create_shift_pattern(keys, offsets)
     create_alphabet
     shift_letters(message)
+    @shifted_message
   end
 
   def main_decrypt_method(message, keys, offsets)
