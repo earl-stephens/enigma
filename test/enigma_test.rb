@@ -86,13 +86,13 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, enigma.encrypt("hello world", "02715")
   end
 
-  def test_it_can_encrypt_a_message_without_a_key
-    enigma = Enigma.new
-
-    enigma.encrypt("hello world", nil ,"040895")
-
-    assert_equal 11, enigma.hash[:message].length
-  end
+  # def test_it_can_encrypt_a_message_without_a_key
+  #   enigma = Enigma.new
+  #
+  #   enigma.encrypt("hello world", nil ,"040895")
+  #
+  #   assert_equal 11, enigma.hash[:message].length
+  # end
 
 
 
