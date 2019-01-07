@@ -101,5 +101,16 @@ class ShiftTest < Minitest::Test
     assert_equal "hello! world!", shift.shifted_message
   end
 
+  def test_main_encrypt_method
+    shift = Shift.new
+    key = Key.new
+    offset = Offset.new
+    keys = key.main_test_method("02715")
+    offsets = offset.main_test_method("040895")
+
+    shift.main_encrypt_method("hello world", keys, offsets)
+    assert_equal "keder ohulw", shift.shifted_message
+  end
+
 
 end

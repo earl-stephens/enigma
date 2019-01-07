@@ -64,7 +64,7 @@ class EnigmaTest < Minitest::Test
     # assert_equal 4, enigma.offset.last_four.length
   end
   def test_it_can_encrypt_a_message
-    skip
+    # skip
     enigma = Enigma.new
 
     expected =({
