@@ -51,4 +51,18 @@ class DecryptionTest < Minitest::Test
     assert_equal "hello world", decryption.shifted_message
   end
 
+  def test_it_can_increment_the_counter
+    # skip
+    decryption = Decryption.new
+    decryption.create_alphabet
+    key = Key.new
+    offset = Offset.new
+    keys = key.main_test_method("02715")
+    offsets = offset.main_test_method("040895")
+    decryption.create_shift_pattern(keys, offsets)
+    decryption.shift_letters_backward("ab")
+
+    assert_equal 3, decryption.increment_counter(3)
+  end
+
 end
