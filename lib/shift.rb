@@ -2,11 +2,13 @@ require 'pry'
 class Shift
   attr_reader :shift_pattern,
               :alphabet,
-              :shifted_message
+              :shifted_message,
+              :counter
 
   def initialize
     @shift_pattern = []
     @shifted_message = ""
+    @counter = 0
   end
 
   def main_encrypt_method(message, keys, offsets)
@@ -40,15 +42,21 @@ class Shift
   end
 
   def shift_letters(message)
-    counter = 0
     message.each_char do |character|
+      counter = @counter
       split_message(character, counter)
-      if counter == 3
-        counter = 0
-      else counter += 1
-      end
+      increment_counter(counter)
     end
     @shifted_message
+  end
+
+  def increment_counter(counter)
+    if @counter == 3
+      @counter = 0
+    else
+      @counter += 1
+    end
+    counter
   end
 
   def split_message(character, counter)
