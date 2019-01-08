@@ -79,4 +79,15 @@ class DecryptionTest < Minitest::Test
     assert_equal "hello world!", decryption.shifted_message
   end
 
+  def test_main_decrypt_method
+    decryption = Decryption.new
+    key = Key.new
+    offset = Offset.new
+    keys = key.main_test_method("02715")
+    offsets = offset.main_test_method("040895")
+
+    decryption.main_decrypt_method("Keder ohulw", keys, offsets)
+    assert_equal "hello world", decryption.shifted_message
+  end
+
 end

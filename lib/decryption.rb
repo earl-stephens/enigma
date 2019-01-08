@@ -11,6 +11,13 @@ class Decryption
     @counter = 0
   end
 
+  def main_decrypt_method(message, keys, offsets)
+    create_shift_pattern(keys, offsets)
+    create_alphabet
+    shift_letters_backward(message_to_downcase(message))
+    @shifted_message
+  end
+
   def rotate_letter_backwards(character, counter)
     placeholder = @alphabet.index(character)
     backwards_shift = @shift_pattern[counter] * -1
