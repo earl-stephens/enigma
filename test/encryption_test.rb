@@ -77,7 +77,7 @@ class EncryptionTest < Minitest::Test
   end
 
   def test_it_can_increment_the_counter
-    skip
+    # skip
     encryption = Encryption.new
     encryption.create_alphabet
     key = Key.new
