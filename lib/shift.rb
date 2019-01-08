@@ -14,14 +14,14 @@ class Shift
   def main_encrypt_method(message, keys, offsets)
     create_shift_pattern(keys, offsets)
     create_alphabet
-    shift_letters(message)
+    shift_letters(message_to_downcase(message))
     @shifted_message
   end
 
   def main_decrypt_method(message, keys, offsets)
     create_shift_pattern(keys, offsets)
     create_alphabet
-    shift_letters_backward(message)
+    shift_letters_backward(message_to_downcase(message))
     @shifted_message
   end
 
@@ -39,6 +39,10 @@ class Shift
 
   def letter_in_alphabet?(letter)
     @alphabet.include?(letter)
+  end
+
+  def message_to_downcase(message)
+    message.downcase
   end
 
   def shift_letters(message)

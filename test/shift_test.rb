@@ -169,7 +169,7 @@ class ShiftTest < Minitest::Test
     keys = key.main_test_method("02715")
     offsets = offset.main_test_method("040895")
 
-    shift.main_encrypt_method("hello world", keys, offsets)
+    shift.main_encrypt_method("Hello world", keys, offsets)
     assert_equal "keder ohulw", shift.shifted_message
   end
 
@@ -180,8 +180,16 @@ class ShiftTest < Minitest::Test
     keys = key.main_test_method("02715")
     offsets = offset.main_test_method("040895")
 
-    shift.main_decrypt_method("keder ohulw", keys, offsets)
+    shift.main_decrypt_method("Keder ohulw", keys, offsets)
     assert_equal "hello world", shift.shifted_message
+  end
+
+  def test_it_can_change_a_message_to_lower_case
+    shift = Shift.new
+
+    message = "This Is A Big Sentence"
+    expected = "this is a big sentence"
+    assert_equal expected, shift.message_to_downcase(message)
   end
 
 
