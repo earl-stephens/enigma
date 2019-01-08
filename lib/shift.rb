@@ -7,9 +7,13 @@ module Shift
     end
     @shift_pattern
   end
-  
+
   def create_alphabet
     @alphabet = ("a".."z").to_a << " "
+  end
+
+  def message_to_downcase(message)
+    message.downcase
   end
 
 end

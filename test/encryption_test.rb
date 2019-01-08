@@ -36,4 +36,27 @@ class EncryptionTest < Minitest::Test
     assert_equal expected, encryption.alphabet
   end
 
+  def test_it_can_change_a_message_to_lower_case
+    encryption = Encryption.new
+
+    message = "This Is A Big Sentence"
+    expected = "this is a big sentence"
+    assert_equal expected, encryption.message_to_downcase(message)
+  end
+
+  def test_it_can_shift_letters
+    skip
+    encryption = Encryption.new
+    encryption.create_alphabet
+    key = Key.new
+    offset = Offset.new
+    keys = key.main_test_method("02715")
+    offsets = offset.main_test_method("040895")
+    encryption.create_shift_pattern(keys, offsets)
+
+    encryption.shift_letters("hello world")
+
+    assert_equal "keder ohulw", encryption.shifted_message
+  end
+
 end
