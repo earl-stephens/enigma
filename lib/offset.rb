@@ -33,7 +33,6 @@ class Offset
   end
 
   def convert_time_to_integer
-    # binding.pry
     numeric_time = @time.to_i
   end
 
@@ -46,7 +45,6 @@ class Offset
     time_squared = square_the_numeric_time
     intermediate_array = time_squared.digits.reverse
     @last_four = intermediate_array[-4..-1]
-    # binding.pry
   end
 
 end

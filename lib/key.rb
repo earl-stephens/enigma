@@ -14,17 +14,14 @@ class Key
   def main_test_method(number)
     test_random_number(number)
     fill_in_zeroes
-    # create_key_hash
     populate_key_array
     convert_key_array
   end
 
   def main_method
     random_number_generator
-
     fill_in_zeroes
     populate_key_array
-        # binding.pry
     convert_key_array
   end
 
@@ -41,7 +38,6 @@ class Key
   end
 
   def fill_in_zeroes
-    # binding.pry
     case @random_number.length
     when 1
       zero = "0000"
@@ -57,13 +53,11 @@ class Key
       @random_number = zero.concat(@random_number)
     else
     end
-    # binding.pry
     @number_as_string = @random_number
     @random_number
   end
 
   def populate_key_array
-    # binding.pry
     counter = 0
     4.times do
       number = @random_number[counter].concat(@random_number[counter + 1])
@@ -77,7 +71,6 @@ class Key
     @key_array.map do |element|
       @converted_key_array << element.to_i
     end
-    # binding.pry
     @converted_key_array
   end
 

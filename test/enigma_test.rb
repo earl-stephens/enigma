@@ -126,6 +126,5 @@ class EnigmaTest < Minitest::Test
       })
     assert_equal expected, enigma.decrypt(encrypted[:encryption], "02715")
   end
-
-
+  
 end

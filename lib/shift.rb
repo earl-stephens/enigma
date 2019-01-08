@@ -42,19 +42,29 @@ class Shift
   def shift_letters(message)
     counter = 0
     message.each_char do |character|
-      if letter_in_alphabet?(character) == true
-        placeholder = @alphabet.index(character)
-        rotated_alphabet = @alphabet.rotate(@shift_pattern[counter])
-        @shifted_message.concat(rotated_alphabet[placeholder])
-          if counter == 3
-            counter = 0
-          else counter += 1
-          end
-      else
-        @shifted_message.concat(character)
+      split_message(character, counter)
+      if counter == 3
+        counter = 0
+      else counter += 1
       end
-      @shifted_message
     end
+    @shifted_message
+  end
+
+  def split_message(character, counter)
+    if letter_in_alphabet?(character) == true
+      rotate_letter(character, counter)
+    else
+      @shifted_message.concat(character)
+    end
+    @shifted_message
+  end
+
+  def rotate_letter(character, counter)
+    placeholder = @alphabet.index(character)
+    rotated_alphabet = @alphabet.rotate(@shift_pattern[counter])
+    @shifted_message.concat(rotated_alphabet[placeholder])
+    @shifted_message
   end
 
   def shift_letters_backwards(message)

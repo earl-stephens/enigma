@@ -51,6 +51,31 @@ class ShiftTest < Minitest::Test
     assert_equal "keder ohulw", shift.shifted_message
   end
 
+  def test_it_can_split_a_message
+    shift = Shift.new
+    shift.create_alphabet
+    key = Key.new
+    offset = Offset.new
+    keys = key.main_test_method("02715")
+    offsets = offset.main_test_method("040895")
+    shift.create_shift_pattern(keys, offsets)
+    # shift.shift_letters("hello world")
+
+    assert_equal "k", shift.split_message("h", 0)
+  end
+
+  def test_it_can_rotate_letters
+    shift = Shift.new
+    shift.create_alphabet
+    key = Key.new
+    offset = Offset.new
+    keys = key.main_test_method("02715")
+    offsets = offset.main_test_method("040895")
+    shift.create_shift_pattern(keys, offsets)
+
+    assert_equal "k", shift.split_message("h", 0)
+  end
+
   def test_it_can_shift_letters_backwards
     shift = Shift.new
     shift.create_alphabet
@@ -84,7 +109,7 @@ class ShiftTest < Minitest::Test
 
     shift.shift_letters("hello! world!")
 
-    assert_equal "keder! ohulw!", shift.shifted_message
+    assert_equal "keder!sprrdx!", shift.shifted_message
   end
 
   def test_it_can_shift_letters_backwards_with_special_characters
