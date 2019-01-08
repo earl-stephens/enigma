@@ -1,4 +1,3 @@
-require 'pry'
 class Shift
   attr_reader :shift_pattern,
               :alphabet,
@@ -104,5 +103,4 @@ class Shift
       end
     @shifted_message
   end
-
 end
