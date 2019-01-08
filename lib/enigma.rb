@@ -1,4 +1,6 @@
-require 'pry'
+require './lib/encryption'
+require './lib/decryption'
+
 class Enigma
   attr_reader :key,
               :offset,

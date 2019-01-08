@@ -1,5 +1,6 @@
 require './lib/enigma'
-require './lib/shift'
+require './lib/encryption'
+require './lib/decryption'
 require './lib/offset'
 require './lib/key'
 

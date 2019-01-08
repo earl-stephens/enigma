@@ -1,4 +1,3 @@
-require 'pry'
 class Key
   attr_reader :random_number,
               :key_array,
@@ -24,7 +23,6 @@ class Key
     populate_key_array
     convert_key_array
   end
-
 
   def random_number_generator
     generator = Random.new

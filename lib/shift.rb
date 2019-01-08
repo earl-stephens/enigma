@@ -28,4 +28,5 @@ module Shift
     end
     counter
   end
+  
 end

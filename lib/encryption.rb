@@ -1,4 +1,5 @@
-# require './shift'
+require './lib/shift'
+
 class Encryption
   include Shift
   attr_reader :shift_pattern,
@@ -43,14 +44,5 @@ class Encryption
     end
     @shifted_message
   end
-
-  # def increment_counter(counter)
-  #   if @counter == 3
-  #     @counter = 0
-  #   else
-  #     @counter += 1
-  #   end
-  #   counter
-  # end
 
 end

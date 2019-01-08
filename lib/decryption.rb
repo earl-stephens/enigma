@@ -1,3 +1,5 @@
+require './lib/shift'
+
 class Decryption
   include Shift
   attr_reader :shift_pattern,
