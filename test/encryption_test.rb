@@ -105,4 +105,15 @@ class EncryptionTest < Minitest::Test
     assert_equal "keder ohulw", encryption.shifted_message
   end
 
+  def test_main_encrypt_method
+    encryption = Encryption.new
+    key = Key.new
+    offset = Offset.new
+    keys = key.main_test_method("02715")
+    offsets = offset.main_test_method("040895")
+
+    encryption.main_encrypt_method("Hello world", keys, offsets)
+    assert_equal "keder ohulw", encryption.shifted_message
+  end
+
 end

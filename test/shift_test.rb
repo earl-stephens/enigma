@@ -37,19 +37,19 @@ class ShiftTest < Minitest::Test
   #   assert_equal expected, shift.alphabet
   # end
 
-  def test_it_can_shift_letters
-    shift = Shift.new
-    shift.create_alphabet
-    key = Key.new
-    offset = Offset.new
-    keys = key.main_test_method("02715")
-    offsets = offset.main_test_method("040895")
-    shift.create_shift_pattern(keys, offsets)
-
-    shift.shift_letters("hello world")
-
-    assert_equal "keder ohulw", shift.shifted_message
-  end
+  # def test_it_can_shift_letters
+  #   shift = Shift.new
+  #   shift.create_alphabet
+  #   key = Key.new
+  #   offset = Offset.new
+  #   keys = key.main_test_method("02715")
+  #   offsets = offset.main_test_method("040895")
+  #   shift.create_shift_pattern(keys, offsets)
+  #
+  #   shift.shift_letters("hello world")
+  #
+  #   assert_equal "keder ohulw", shift.shifted_message
+  # end
 
   # def test_it_can_split_a_message
   #   shift = Shift.new
