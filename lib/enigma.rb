@@ -34,7 +34,7 @@ class Enigma
     setup
     encrypt_key = select_key(user_key)
     encrypt_offset = select_offset(user_date)
-    @hash[:encryption] = @shift.main_encrypt_method(message, encrypt_key, encrypt_offset)
+    @hash[:encryption] = @encryption.main_encrypt_method(message, encrypt_key, encrypt_offset)
     @hash[:key] = @key.number_as_string
     @hash[:date] = @offset.time
     @hash
@@ -44,7 +44,7 @@ class Enigma
     setup
     encrypt_key = select_key(user_key)
     encrypt_offset = select_offset(user_date)
-    @hash[:decryption] = @shift.main_decrypt_method(message, encrypt_key, encrypt_offset)
+    @hash[:decryption] = @decryption.main_decrypt_method(message, encrypt_key, encrypt_offset)
     @hash[:key] = @key.number_as_string
     @hash[:date] = @offset.time
     @hash

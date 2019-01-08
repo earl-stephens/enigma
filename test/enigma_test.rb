@@ -18,7 +18,8 @@ class EnigmaTest < Minitest::Test
 
     assert_instance_of Key, enigma.key
     assert_instance_of Offset, enigma.offset
-    assert_instance_of Shift, enigma.shift
+    assert_instance_of Encryption, enigma.encryption
+    assert_instance_of Decryption, enigma.decryption
     assert_instance_of Hash, enigma.hash
   end
 
