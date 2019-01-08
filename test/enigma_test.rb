@@ -57,8 +57,6 @@ class EnigmaTest < Minitest::Test
     enigma.select_offset("050598")
 
     assert_equal [7, 6, 0, 4], enigma.offset.last_four
-    # assert_equal Integer, enigma.offset.last_four[2].class
-    # assert_equal 4, enigma.offset.last_four.length
   end
   def test_it_can_encrypt_a_message
     # skip
@@ -75,19 +73,16 @@ class EnigmaTest < Minitest::Test
   def test_it_can_encrypt_a_message_without_a_date
     enigma = Enigma.new
 
-    expected =({
-      encryption: "nfhauasdxm ",
-      key: "02715",
-      date: "070119"
-      })
-    assert_equal expected, enigma.encrypt("hello world", "02715")
+    actual = enigma.encrypt("hello world", "02715")
+    assert_equal 11, actual[:encryption].length
+    assert_equal "02715", actual[:key]
+    assert_equal String, actual[:date].class
   end
 
   def test_it_can_encrypt_a_message_without_a_key_or_a_date
     enigma = Enigma.new
 
     assert_equal 11, enigma.encrypt("hello world")[:encryption].length
-
   end
 
   def test_it_can_decrypt_a_message
@@ -106,12 +101,10 @@ class EnigmaTest < Minitest::Test
 
     encrypted = enigma.encrypt("hello world", "02715")
 
-    expected =({
-      decryption: "hello world",
-      key: "02715",
-      date: "070119"
-      })
-    assert_equal expected, enigma.decrypt(encrypted[:encryption], "02715")
+    actual = enigma.decrypt(encrypted[:encryption], "02715")
+    assert_equal 11, actual[:decryption].length
+    assert_equal "02715", actual[:key]
+    assert_equal String, actual[:date].class
   end
 
 end
