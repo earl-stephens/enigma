@@ -105,6 +105,20 @@ class EncryptionTest < Minitest::Test
     assert_equal "keder ohulw", encryption.shifted_message
   end
 
+  def test_it_can_shift_letters_with_special_characters
+    encryption = Encryption.new
+    encryption.create_alphabet
+    key = Key.new
+    offset = Offset.new
+    keys = key.main_test_method("02715")
+    offsets = offset.main_test_method("040895")
+    encryption.create_shift_pattern(keys, offsets)
+
+    encryption.shift_letters("hello! world!")
+
+    assert_equal "keder!sprrdx!", encryption.shifted_message
+  end
+
   def test_main_encrypt_method
     encryption = Encryption.new
     key = Key.new
