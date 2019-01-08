@@ -1,7 +1,7 @@
 # require 'minitest/autorun'
 # require 'minitest/pride'
 require 'date'
-require './lib/enigma'
+# require './lib/enigma'
 require './test/test_helper'
 
 class EnigmaTest < Minitest::Test
@@ -126,5 +126,5 @@ class EnigmaTest < Minitest::Test
       })
     assert_equal expected, enigma.decrypt(encrypted[:encryption], "02715")
   end
-  
+
 end
