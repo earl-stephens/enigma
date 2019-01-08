@@ -21,7 +21,7 @@ class Shift
   def main_decrypt_method(message, keys, offsets)
     create_shift_pattern(keys, offsets)
     create_alphabet
-    shift_letters_backwards(message)
+    shift_letters_backward(message)
     @shifted_message
   end
 
@@ -92,41 +92,13 @@ class Shift
     @shifted_message
   end
 
-  def shift_letters_backwards(message)
-    # counter = 0
+  def shift_letters_backward(message)
     message.each_char do |character|
       counter = @counter
-      split_message_backwards(character, counter)
+      split_message_backward(character, counter)
       increment_counter(counter)
-      if letter_in_alphabet?(character) == true
-
-        if counter == 3
-          counter = 0
-        else counter += 1
-        end
-      else
-        @shifted_message.concat(character)
       end
     @shifted_message
   end
-  end
 
-  # def shift_letters_backwards(message)
-  #   counter = 0
-  #   message.each_char do |character|
-  #     if letter_in_alphabet?(character) == true
-  #       placeholder = @alphabet.index(character)
-  #       backwards_shift = @shift_pattern[counter] * -1
-  #       rotated_alphabet = @alphabet.rotate(backwards_shift)
-  #       @shifted_message.concat(rotated_alphabet[placeholder])
-  #       if counter == 3
-  #         counter = 0
-  #       else counter += 1
-  #       end
-  #     else
-  #       @shifted_message.concat(character)
-  #     end
-  #   @shifted_message
-  # end
-  # end
 end

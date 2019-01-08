@@ -121,7 +121,7 @@ class ShiftTest < Minitest::Test
     offsets = offset.main_test_method("040895")
     shift.create_shift_pattern(keys, offsets)
 
-    shift.shift_letters_backwards("keder ohulw")
+    shift.shift_letters_backward("keder ohulw")
 
     assert_equal "hello world", shift.shifted_message
   end
@@ -157,9 +157,9 @@ class ShiftTest < Minitest::Test
     offsets = offset.main_test_method("040895")
     shift.create_shift_pattern(keys, offsets)
 
-    shift.shift_letters_backwards("keder! ohulw!")
+    shift.shift_letters_backward("keder ohulw!")
 
-    assert_equal "hello! world!", shift.shifted_message
+    assert_equal "hello world!", shift.shifted_message
   end
 
   def test_main_encrypt_method
