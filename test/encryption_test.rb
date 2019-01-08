@@ -76,8 +76,22 @@ class EncryptionTest < Minitest::Test
     assert_equal "k", encryption.split_message("h", 0)
   end
 
-  def test_it_can_shift_letters
+  def test_it_can_increment_the_counter
     skip
+    encryption = Encryption.new
+    encryption.create_alphabet
+    key = Key.new
+    offset = Offset.new
+    keys = key.main_test_method("02715")
+    offsets = offset.main_test_method("040895")
+    encryption.create_shift_pattern(keys, offsets)
+    encryption.shift_letters("ab")
+
+    assert_equal 3, encryption.increment_counter(3)
+  end
+
+  def test_it_can_shift_letters
+    # skip
     encryption = Encryption.new
     encryption.create_alphabet
     key = Key.new

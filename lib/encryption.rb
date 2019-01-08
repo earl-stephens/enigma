@@ -3,11 +3,13 @@ class Encryption
   include Shift
   attr_reader :shift_pattern,
               :alphabet,
-              :shifted_message
+              :shifted_message,
+              :counter
 
   def initialize
     @shift_pattern = []
     @shifted_message = ""
+    @counter = 0
   end
 
   def shift_letters(message)
@@ -33,6 +35,15 @@ class Encryption
       @shifted_message.concat(character)
     end
     @shifted_message
+  end
+
+  def increment_counter(counter)
+    if @counter == 3
+      @counter = 0
+    else
+      @counter += 1
+    end
+    counter
   end
 
 end
