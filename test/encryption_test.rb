@@ -73,7 +73,7 @@ class EncryptionTest < Minitest::Test
     offsets = offset.main_test_method("040895")
     encryption.create_shift_pattern(keys, offsets)
 
-    assert_equal "k", encryption.split_message("h", 0)
+    assert_equal "k", encryption.validate_letter("h", 0)
   end
 
   def test_it_can_increment_the_counter
@@ -85,7 +85,7 @@ class EncryptionTest < Minitest::Test
     keys = key.main_test_method("02715")
     offsets = offset.main_test_method("040895")
     encryption.create_shift_pattern(keys, offsets)
-    encryption.shift_letters("ab")
+    encryption.breakdown_message_into_letters("ab")
 
     assert_equal 3, encryption.increment_counter(3)
   end
@@ -100,7 +100,7 @@ class EncryptionTest < Minitest::Test
     offsets = offset.main_test_method("040895")
     encryption.create_shift_pattern(keys, offsets)
 
-    encryption.shift_letters("hello world")
+    encryption.breakdown_message_into_letters("hello world")
 
     assert_equal "keder ohulw", encryption.shifted_message
   end
@@ -114,7 +114,7 @@ class EncryptionTest < Minitest::Test
     offsets = offset.main_test_method("040895")
     encryption.create_shift_pattern(keys, offsets)
 
-    encryption.shift_letters("hello! world!")
+    encryption.breakdown_message_into_letters("hello! world!")
 
     assert_equal "keder!sprrdx!", encryption.shifted_message
   end
