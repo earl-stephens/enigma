@@ -126,13 +126,13 @@ class ShiftTest < Minitest::Test
     assert_equal "hello world", shift.shifted_message
   end
 
-  def test_if_character_is_in_the_alphabet
-    shift = Shift.new
-    shift.create_alphabet
-
-    assert_equal true, shift.letter_in_alphabet?("d")
-    assert_equal false, shift.letter_in_alphabet?("!")
-  end
+  # def test_if_character_is_in_the_alphabet
+  #   shift = Shift.new
+  #   shift.create_alphabet
+  #
+  #   assert_equal true, shift.letter_in_alphabet?("d")
+  #   assert_equal false, shift.letter_in_alphabet?("!")
+  # end
 
   def test_it_can_shift_letters_with_special_characters
     shift = Shift.new
@@ -184,13 +184,13 @@ class ShiftTest < Minitest::Test
     assert_equal "hello world", shift.shifted_message
   end
 
-  def test_it_can_change_a_message_to_lower_case
-    shift = Shift.new
-
-    message = "This Is A Big Sentence"
-    expected = "this is a big sentence"
-    assert_equal expected, shift.message_to_downcase(message)
-  end
+  # def test_it_can_change_a_message_to_lower_case
+  #   shift = Shift.new
+  #
+  #   message = "This Is A Big Sentence"
+  #   expected = "this is a big sentence"
+  #   assert_equal expected, shift.message_to_downcase(message)
+  # end
 
 
 end

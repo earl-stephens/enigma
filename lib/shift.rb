@@ -16,4 +16,8 @@ module Shift
     message.downcase
   end
 
+  def letter_in_alphabet?(letter)
+    @alphabet.include?(letter)
+  end
+
 end

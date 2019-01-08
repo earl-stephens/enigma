@@ -44,6 +44,14 @@ class EncryptionTest < Minitest::Test
     assert_equal expected, encryption.message_to_downcase(message)
   end
 
+  def test_if_character_is_in_the_alphabet
+    encryption = Encryption.new
+    encryption.create_alphabet
+
+    assert_equal true, encryption.letter_in_alphabet?("d")
+    assert_equal false, encryption.letter_in_alphabet?("!")
+  end
+
   def test_it_can_shift_letters
     skip
     encryption = Encryption.new
