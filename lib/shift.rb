@@ -8,4 +8,8 @@ module Shift
     @shift_pattern
   end
   
+  def create_alphabet
+    @alphabet = ("a".."z").to_a << " "
+  end
+
 end
