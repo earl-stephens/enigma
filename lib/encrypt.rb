@@ -8,7 +8,8 @@ message = handle.read
 handle.close
 
 enigma = Enigma.new
-encrypted = enigma.encrypt(message)
+enigma.encrypt(message)
+encrypted = enigma.hash[:encryption]
 
 puts "Created " + ARGV[0] + " with the key #{enigma.hash[:key].to_i} and the date #{enigma.hash[:date].to_i}"
 
