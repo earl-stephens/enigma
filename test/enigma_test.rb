@@ -1,7 +1,7 @@
 # require 'minitest/autorun'
 # require 'minitest/pride'
 require 'date'
-require './lib/enigma'
+# require './lib/enigma'
 require './test/test_helper'
 
 class EnigmaTest < Minitest::Test
@@ -18,7 +18,8 @@ class EnigmaTest < Minitest::Test
 
     assert_instance_of Key, enigma.key
     assert_instance_of Offset, enigma.offset
-    assert_instance_of Shift, enigma.shift
+    assert_instance_of Encryption, enigma.encryption
+    assert_instance_of Decryption, enigma.decryption
     assert_instance_of Hash, enigma.hash
   end
 
@@ -126,5 +127,5 @@ class EnigmaTest < Minitest::Test
       })
     assert_equal expected, enigma.decrypt(encrypted[:encryption], "02715")
   end
-  
+
 end

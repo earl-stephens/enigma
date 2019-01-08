@@ -1,4 +1,3 @@
-require 'pry'
 class Offset
   attr_reader :time,
               :last_four
