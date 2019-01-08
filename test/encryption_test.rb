@@ -20,6 +20,12 @@ class EncryptionTest < Minitest::Test
     assert_equal [4, 33, 50, 72], encryption.shift_pattern
   end
 
+  def test_it_has_attributes
+    encryption = Encryption.new
+
+    assert_equal [], encryption.shift_pattern
+  end
+
   def test_it_has_an_alphabet
     encryption = Encryption.new
 
