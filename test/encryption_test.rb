@@ -52,6 +52,18 @@ class EncryptionTest < Minitest::Test
     assert_equal false, encryption.letter_in_alphabet?("!")
   end
 
+  def test_it_can_rotate_letters
+    encryption = Encryption.new
+    encryption.create_alphabet
+    key = Key.new
+    offset = Offset.new
+    keys = key.main_test_method("02715")
+    offsets = offset.main_test_method("040895")
+    encryption.create_shift_pattern(keys, offsets)
+
+    assert_equal "k", encryption.rotate_letter("h", 0)
+  end
+
   def test_it_can_shift_letters
     skip
     encryption = Encryption.new
