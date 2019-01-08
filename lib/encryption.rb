@@ -26,4 +26,13 @@ class Encryption
     @shifted_message
   end
 
+  def split_message(character, counter)
+    if letter_in_alphabet?(character) == true
+      rotate_letter(character, counter)
+    else
+      @shifted_message.concat(character)
+    end
+    @shifted_message
+  end
+
 end
