@@ -77,10 +77,18 @@ class Shift
 
   def split_message_backward(character, counter)
     if letter_in_alphabet?(character) == true
-      rotate_letter(character, counter)
+      rotate_letter_backwards(character, counter)
     else
       @shifted_message.concat(character)
     end
+    @shifted_message
+  end
+
+  def rotate_letter_backwards(character, counter)
+    placeholder = @alphabet.index(character)
+    backwards_shift = @shift_pattern[counter] * -1
+    rotated_alphabet = @alphabet.rotate(backwards_shift)
+    @shifted_message.concat(rotated_alphabet[placeholder])
     @shifted_message
   end
 
@@ -89,11 +97,9 @@ class Shift
     message.each_char do |character|
       counter = @counter
       split_message_backwards(character, counter)
+      increment_counter(counter)
       if letter_in_alphabet?(character) == true
-        placeholder = @alphabet.index(character)
-        backwards_shift = @shift_pattern[counter] * -1
-        rotated_alphabet = @alphabet.rotate(backwards_shift)
-        @shifted_message.concat(rotated_alphabet[placeholder])
+
         if counter == 3
           counter = 0
         else counter += 1
