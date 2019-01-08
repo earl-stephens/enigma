@@ -1,7 +1,4 @@
-# require 'minitest/autorun'
-# require 'minitest/pride'
 require 'date'
-# require './lib/enigma'
 require './test/test_helper'
 
 class EnigmaTest < Minitest::Test
@@ -20,7 +17,6 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Offset, enigma.offset
     assert_instance_of Encryption, enigma.encryption
     assert_instance_of Decryption, enigma.decryption
-    assert_instance_of Hash, enigma.hash
   end
 
   def test_it_can_choose_a_key_method_when_given_a_key
@@ -90,19 +86,9 @@ class EnigmaTest < Minitest::Test
   def test_it_can_encrypt_a_message_without_a_key_or_a_date
     enigma = Enigma.new
 
-    enigma.encrypt("hello world")
-
-    assert_equal 11, enigma.hash[:encryption].length
+    assert_equal 11, enigma.encrypt("hello world")[:encryption].length
 
   end
-
-  # def test_it_can_encrypt_a_message_without_a_key
-  #   enigma = Enigma.new
-  #
-  #   enigma.encrypt("hello world", nil ,"040895")
-  #
-  #   assert_equal 11, enigma.hash[:message].length
-  # end
 
   def test_it_can_decrypt_a_message
     enigma = Enigma.new

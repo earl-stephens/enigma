@@ -42,7 +42,7 @@ class Decryption
       counter = @counter
       split_message_backward(character, counter)
       increment_counter(counter)
-      end
+    end
     @shifted_message
   end
 

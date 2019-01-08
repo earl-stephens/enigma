@@ -5,15 +5,13 @@ class Enigma
   attr_reader :key,
               :offset,
               :encryption,
-              :decryption,
-              :hash
+              :decryption
 
   def setup
     @key = Key.new
     @offset = Offset.new
     @encryption = Encryption.new
     @decryption = Decryption.new
-    @hash = Hash.new
   end
 
   def select_key(user_key)
@@ -36,20 +34,20 @@ class Enigma
     setup
     encrypt_key = select_key(user_key)
     encrypt_offset = select_offset(user_date)
-    @hash[:encryption] = @encryption.main_encrypt_method(message, encrypt_key, encrypt_offset)
-    @hash[:key] = @key.number_as_string
-    @hash[:date] = @offset.time
-    @hash
+    encrypt_hash = {encryption: @encryption.main_encrypt_method(message, encrypt_key, encrypt_offset)}
+    encrypt_hash[:key] = @key.number_as_string
+    encrypt_hash[:date] = @offset.time
+    encrypt_hash
   end
 
   def decrypt(message, user_key = nil, user_date = nil)
     setup
     encrypt_key = select_key(user_key)
     encrypt_offset = select_offset(user_date)
-    @hash[:decryption] = @decryption.main_decrypt_method(message, encrypt_key, encrypt_offset)
-    @hash[:key] = @key.number_as_string
-    @hash[:date] = @offset.time
-    @hash
+    decrypt_hash = {decryption: @decryption.main_decrypt_method(message, encrypt_key, encrypt_offset)}
+    decrypt_hash[:key] = @key.number_as_string
+    decrypt_hash[:date] = @offset.time
+    decrypt_hash
   end
 
 end
