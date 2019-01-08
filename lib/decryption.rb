@@ -18,13 +18,22 @@ class Decryption
     @shifted_message.concat(rotated_alphabet[placeholder])
     @shifted_message
   end
-  
+
   def split_message_backward(character, counter)
     if letter_in_alphabet?(character) == true
       rotate_letter_backwards(character, counter)
     else
       @shifted_message.concat(character)
     end
+    @shifted_message
+  end
+
+  def shift_letters_backward(message)
+    message.each_char do |character|
+      counter = @counter
+      split_message_backward(character, counter)
+      increment_counter(counter)
+      end
     @shifted_message
   end
 

@@ -100,17 +100,17 @@ class ShiftTest < Minitest::Test
   #   assert_equal "k", shift.split_message("h", 0)
   # end
 
-  def test_it_can_rotate_letters_backwards
-    shift = Shift.new
-    shift.create_alphabet
-    key = Key.new
-    offset = Offset.new
-    keys = key.main_test_method("02715")
-    offsets = offset.main_test_method("040895")
-    shift.create_shift_pattern(keys, offsets)
-
-    assert_equal "h", shift.split_message_backward("k", 0)
-  end
+  # def test_it_can_rotate_letters_backwards
+  #   shift = Shift.new
+  #   shift.create_alphabet
+  #   key = Key.new
+  #   offset = Offset.new
+  #   keys = key.main_test_method("02715")
+  #   offsets = offset.main_test_method("040895")
+  #   shift.create_shift_pattern(keys, offsets)
+  #
+  #   assert_equal "h", shift.split_message_backward("k", 0)
+  # end
 
   def test_it_can_shift_letters_backwards
     shift = Shift.new

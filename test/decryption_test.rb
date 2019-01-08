@@ -37,4 +37,18 @@ class DecryptionTest < Minitest::Test
     assert_equal "h", decryption.split_message_backward("k", 0)
   end
 
+  def test_it_can_shift_letters_backwards
+    decryption = Decryption.new
+    decryption.create_alphabet
+    key = Key.new
+    offset = Offset.new
+    keys = key.main_test_method("02715")
+    offsets = offset.main_test_method("040895")
+    decryption.create_shift_pattern(keys, offsets)
+
+    decryption.shift_letters_backward("keder ohulw")
+
+    assert_equal "hello world", decryption.shifted_message
+  end
+
 end
