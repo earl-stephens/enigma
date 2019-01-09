@@ -16,14 +16,14 @@ class Encryption
   def main_encrypt_method(message, keys, offsets)
     create_shift_pattern(keys, offsets)
     create_alphabet
-    shift_letters(message_to_downcase(message))
+    breakdown_message_into_letters(message_to_downcase(message))
     @shifted_message
   end
 
-  def shift_letters(message)
+  def breakdown_message_into_letters(message)
     message.each_char do |character|
       counter = @counter
-      split_message(character, counter)
+      validate_letter(character, counter)
       increment_counter(counter)
     end
     @shifted_message
@@ -36,7 +36,7 @@ class Encryption
     @shifted_message
   end
 
-  def split_message(character, counter)
+  def validate_letter(character, counter)
     if letter_in_alphabet?(character) == true
       rotate_letter(character, counter)
     else

@@ -22,7 +22,7 @@ class DecryptionTest < Minitest::Test
     offsets = offset.main_test_method("040895")
     decryption.create_shift_pattern(keys, offsets)
 
-    assert_equal "e", decryption.split_message_backward("h", 0)
+    assert_equal "e", decryption.validate_letter("h", 0)
   end
 
   def test_it_can_rotate_letters_backwards
@@ -34,7 +34,7 @@ class DecryptionTest < Minitest::Test
     offsets = offset.main_test_method("040895")
     decryption.create_shift_pattern(keys, offsets)
 
-    assert_equal "h", decryption.split_message_backward("k", 0)
+    assert_equal "h", decryption.validate_letter("k", 0)
   end
 
   def test_it_can_shift_letters_backwards
@@ -46,7 +46,7 @@ class DecryptionTest < Minitest::Test
     offsets = offset.main_test_method("040895")
     decryption.create_shift_pattern(keys, offsets)
 
-    decryption.shift_letters_backward("keder ohulw")
+    decryption.breakdown_message_into_letters("keder ohulw")
 
     assert_equal "hello world", decryption.shifted_message
   end
@@ -60,7 +60,7 @@ class DecryptionTest < Minitest::Test
     keys = key.main_test_method("02715")
     offsets = offset.main_test_method("040895")
     decryption.create_shift_pattern(keys, offsets)
-    decryption.shift_letters_backward("ab")
+    decryption.breakdown_message_into_letters("ab")
 
     assert_equal 3, decryption.increment_counter(3)
   end
@@ -74,7 +74,7 @@ class DecryptionTest < Minitest::Test
     offsets = offset.main_test_method("040895")
     decryption.create_shift_pattern(keys, offsets)
 
-    decryption.shift_letters_backward("keder ohulw!")
+    decryption.breakdown_message_into_letters("keder ohulw!")
 
     assert_equal "hello world!", decryption.shifted_message
   end
