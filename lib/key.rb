@@ -37,8 +37,8 @@ class Key
   end
 
   def fill_in_zeroes
-    temporary_number = @random_number.rjust(5, "0")
-    @random_number = temporary_number
+    @random_number = @random_number.rjust(5, "0")
+    @number_as_string = @random_number
     @random_number
   end
 
