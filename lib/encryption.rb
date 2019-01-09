@@ -23,7 +23,7 @@ class Encryption
   def breakdown_message_into_letters(message)
     message.each_char do |character|
       counter = @counter
-      split_message(character, counter)
+      validate_letter(character, counter)
       increment_counter(counter)
     end
     @shifted_message
@@ -36,7 +36,7 @@ class Encryption
     @shifted_message
   end
 
-  def split_message(character, counter)
+  def validate_letter(character, counter)
     if letter_in_alphabet?(character) == true
       rotate_letter(character, counter)
     else

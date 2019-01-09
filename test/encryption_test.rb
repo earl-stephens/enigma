@@ -73,7 +73,7 @@ class EncryptionTest < Minitest::Test
     offsets = offset.main_test_method("040895")
     encryption.create_shift_pattern(keys, offsets)
 
-    assert_equal "k", encryption.split_message("h", 0)
+    assert_equal "k", encryption.validate_letter("h", 0)
   end
 
   def test_it_can_increment_the_counter
