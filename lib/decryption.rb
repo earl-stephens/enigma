@@ -3,7 +3,6 @@ require './lib/shift'
 class Decryption
   include Shift
   attr_reader :shift_pattern,
-              :alphabet,
               :shifted_message,
               :counter
 
@@ -21,9 +20,9 @@ class Decryption
   end
 
   def rotate_letter_backwards(character, counter)
-    placeholder = @alphabet.index(character)
+    placeholder = create_alphabet.index(character)
     backwards_shift = @shift_pattern[counter] * -1
-    rotated_alphabet = @alphabet.rotate(backwards_shift)
+    rotated_alphabet = create_alphabet.rotate(backwards_shift)
     @shifted_message.concat(rotated_alphabet[placeholder])
     @shifted_message
   end

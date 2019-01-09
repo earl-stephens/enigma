@@ -29,11 +29,11 @@ class EncryptionTest < Minitest::Test
   def test_it_has_an_alphabet
     encryption = Encryption.new
 
-    encryption.create_alphabet
+    # encryption.create_alphabet
 
     expected = ["a","b","c","d","e","f","g","h","i","j","k","l",
       "m","n","o","p","q","r","s","t","u","v","w","x","y","z"," "]
-    assert_equal expected, encryption.alphabet
+    assert_equal expected, encryption.create_alphabet
   end
 
   def test_it_can_change_a_message_to_lower_case

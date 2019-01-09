@@ -3,7 +3,6 @@ require './lib/shift'
 class Encryption
   include Shift
   attr_reader :shift_pattern,
-              :alphabet,
               :shifted_message,
               :counter
 
@@ -30,8 +29,9 @@ class Encryption
   end
 
   def rotate_letter(character, counter)
-    placeholder = @alphabet.index(character)
-    rotated_alphabet = @alphabet.rotate(@shift_pattern[counter])
+    # shift_pattern_array =
+    placeholder = create_alphabet.index(character)
+    rotated_alphabet = create_alphabet.rotate(@shift_pattern[counter])
     @shifted_message.concat(rotated_alphabet[placeholder])
     @shifted_message
   end

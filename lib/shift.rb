@@ -9,7 +9,8 @@ module Shift
   end
 
   def create_alphabet
-    @alphabet = ("a".."z").to_a << " "
+    alphabet = ("a".."z").to_a << " "
+    alphabet
   end
 
   def message_to_downcase(message)
@@ -17,7 +18,9 @@ module Shift
   end
 
   def letter_in_alphabet?(letter)
-    @alphabet.include?(letter)
+    # create_alphabet
+    # require 'pry'; binding.pry
+    create_alphabet.include?(letter)
   end
 
   def increment_counter(counter)
@@ -28,5 +31,5 @@ module Shift
     end
     counter
   end
-  
+
 end
