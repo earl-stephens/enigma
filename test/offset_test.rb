@@ -67,9 +67,9 @@ class OffsetTest < Minitest::Test
     offset.convert_time_to_integer
     offset.square_the_numeric_time
 
-    offset.get_the_last_four
+    # offset.get_the_last_four
 
-    assert_equal [5, 4, 8, 1], offset.last_four
+    assert_equal [5, 4, 8, 1], offset.get_the_last_four
   end
 
   def test_CEO_tester_method
@@ -77,17 +77,17 @@ class OffsetTest < Minitest::Test
 
     offset.main_test_method("050598")
 
-    assert_equal [7, 6, 0, 4], offset.last_four
+    assert_equal [7, 6, 0, 4], offset.main_test_method("050598")
   end
 
   def test_CEO_main_method
     offset = Offset.new
 
-    offset.main_method
+    actual = offset.main_method
 
-    assert_equal 4, offset.last_four.length
-    assert_equal Array, offset.last_four.class
-    assert_equal Integer, offset.last_four[2].class
+    assert_equal 4, actual.length
+    assert_equal Array, actual.class
+    assert_equal Integer, actual[2].class
   end
 
 end

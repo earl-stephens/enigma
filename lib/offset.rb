@@ -1,6 +1,6 @@
 class Offset
-  attr_reader :time,
-              :last_four
+  attr_reader :time
+              # :last_four
 
   def main_test_method(date)
     test_time_helper_method(date)
@@ -41,9 +41,11 @@ class Offset
   end
 
   def get_the_last_four
+    last_four = []
     time_squared = square_the_numeric_time
     intermediate_array = time_squared.digits.reverse
-    @last_four = intermediate_array[-4..-1]
+    last_four = intermediate_array[-4..-1]
+    last_four
   end
 
 end
