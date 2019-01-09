@@ -6,14 +6,12 @@ class Enigma
               :offset,
               :encryption,
               :decryption
-              # :hash
 
   def setup
     @key = Key.new
     @offset = Offset.new
     @encryption = Encryption.new
     @decryption = Decryption.new
-    # @hash = Hash.new
   end
 
   def select_key(user_key)

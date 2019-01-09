@@ -1,6 +1,5 @@
 class Offset
   attr_reader :time
-              # :last_four
 
   def main_test_method(date)
     test_time_helper_method(date)

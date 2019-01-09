@@ -14,7 +14,6 @@ encrypted = encrypt_variable[:encryption]
 
 puts "Created " + ARGV[1] + " with the key #{encrypt_variable[:key].to_i} and the date #{encrypt_variable[:date].to_i}"
 
-
 writer = File.open(ARGV[1], "w")
 writer.write(encrypted)
 writer.close
