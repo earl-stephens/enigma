@@ -28,7 +28,7 @@ class Decryption
     @shifted_message
   end
 
-  def split_message_backward(character, counter)
+  def validate_letter(character, counter)
     if letter_in_alphabet?(character) == true
       rotate_letter_backwards(character, counter)
     else
@@ -40,7 +40,7 @@ class Decryption
   def breakdown_message_into_letters(message)
     message.each_char do |character|
       counter = @counter
-      split_message_backward(character, counter)
+      validate_letter(character, counter)
       increment_counter(counter)
     end
     @shifted_message
