@@ -46,7 +46,7 @@ class DecryptionTest < Minitest::Test
     offsets = offset.main_test_method("040895")
     decryption.create_shift_pattern(keys, offsets)
 
-    decryption.shift_letters_backward("keder ohulw")
+    decryption.breakdown_message_into_letters("keder ohulw")
 
     assert_equal "hello world", decryption.shifted_message
   end
@@ -60,7 +60,7 @@ class DecryptionTest < Minitest::Test
     keys = key.main_test_method("02715")
     offsets = offset.main_test_method("040895")
     decryption.create_shift_pattern(keys, offsets)
-    decryption.shift_letters_backward("ab")
+    decryption.breakdown_message_into_letters("ab")
 
     assert_equal 3, decryption.increment_counter(3)
   end
@@ -74,7 +74,7 @@ class DecryptionTest < Minitest::Test
     offsets = offset.main_test_method("040895")
     decryption.create_shift_pattern(keys, offsets)
 
-    decryption.shift_letters_backward("keder ohulw!")
+    decryption.breakdown_message_into_letters("keder ohulw!")
 
     assert_equal "hello world!", decryption.shifted_message
   end
