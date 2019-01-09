@@ -39,23 +39,6 @@ class Key
     @random_number = @random_number.rjust(5, "0")
     @number_as_string = @random_number
     @random_number
-    # case @random_number.length
-    # when 1
-    #   zero = "0000"
-    #   @random_number = zero.concat(@random_number)
-    # when 2
-    #   zero = "000"
-    #   @random_number = zero.concat(@random_number)
-    # when 3
-    #   zero = "00"
-    #   @random_number = zero.concat(@random_number)
-    # when 4
-    #   zero = "0"
-    #   @random_number = zero.concat(@random_number)
-    # else
-    # end
-    # @number_as_string = @random_number
-    # @random_number
   end
 
   def populate_key_array
