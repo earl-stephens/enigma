@@ -20,7 +20,7 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Offset, enigma.offset
     assert_instance_of Encryption, enigma.encryption
     assert_instance_of Decryption, enigma.decryption
-    assert_instance_of Hash, enigma.hash
+    # assert_instance_of Hash, enigma.hash
   end
 
   def test_it_can_choose_a_key_method_when_given_a_key
@@ -95,9 +95,9 @@ class EnigmaTest < Minitest::Test
   def test_it_can_encrypt_a_message_without_a_key_or_a_date
     enigma = Enigma.new
 
-    enigma.encrypt("hello world")
+    # enigma.encrypt("hello world")
 
-    assert_equal 11, enigma.hash[:encryption].length
+    assert_equal 11, enigma.encrypt("hello world")[:encryption].length
 
   end
 

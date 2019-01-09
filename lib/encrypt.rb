@@ -9,10 +9,10 @@ message = handle.read
 handle.close
 
 enigma = Enigma.new
-enigma.encrypt(message)
-encrypted = enigma.hash[:encryption]
+encrypt_variable = enigma.encrypt(message)
+encrypted = encrypt_variable[:encryption]
 
-puts "Created " + ARGV[1] + " with the key #{enigma.hash[:key].to_i} and the date #{enigma.hash[:date].to_i}"
+puts "Created " + ARGV[1] + " with the key #{encrypt_variable[:key].to_i} and the date #{encrypt_variable[:date].to_i}"
 
 
 writer = File.open(ARGV[1], "w")
